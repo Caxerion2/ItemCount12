@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ItemCount - Download</title>
+    <link rel="stylesheet" href="../css/download.css">
+    <link rel="stylesheet" href="../css/loader.css">
+    <link rel="shortcut icon" type="image/png" href="../photogif/yoyo-removebg-preview.png">
+    <script src="../js/loading.js"></script>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif; 
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: Playwrite GB S, sans-serif;
+    background-color: #efefef;
+    background-position: center;
+    color: rgb(0, 0, 0);
+}
+#back {
+    transition: margin-left 0.5s;
+    margin-top: 95px;
+    position: absolute;
+}
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px; /* Tersembunyi di luar layar */
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 100px;
+}
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+.sidebar a:hover {
+    background-color: #ffffff;
+    color: black;
+}
+  
+.closebtn {
+    font-size: 36px;
+    margin-left: 15px;
+}
+.sidebar .closebtn:hover {
+    background-color: rgb(235, 0, 0);
+}
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    margin-top: 50px;
+    border: none;
+    padding: 10px 15px;
+    transition: all 0.32s ease;
+}
+.openbtn:hover {
+    background-color: #575757;
+}  
+.main-title {
+    font-size: 150%;
+    margin-top: 5%;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    color: #141313;
+    animation: fadeIn 2s;
+}
+.title {
+    font-size: 150%;
+    margin-top: 5%;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    color: rgb(255, 255, 255);
+    animation: fadeIn 2s;
+}
+.ItemCount {
+    font-size: 200%;
+    margin-top: 1%;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    color: #141313;
+    animation: fadeIn 2s;
+}
+.ItemCount p {
+    color: #7c7c7c;
+    font-family: "Nunito", sans-serif;
+}
+
+.about .about-content,
+.services .serv-content,
+.skills .skills-content,
+.contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 23px;
+}    
+.services, .teams{
+    color:#fff;
+    background: #000000;
+    padding-bottom: 100px;
+}
+.services .title::before,
+.teams .title::before{
+    background: #000000;
+}
+.services .title::after,
+.teams .title::after{
+    background: #000000;
+}
+.services .serv-content .card{
+    width: calc(33% - 20px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 35px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeIn 2s;
+}
+.services .serv-content .card:hover{
+    background: rgb(255, 255, 255);
+}
+.services .serv-content .card .box{
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover .box{
+    transform: scale(1.05);
+}
+.services .serv-content .card i{
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    transition: color 0.3s ease;
+}
+.services .serv-content .card a{
+    color: #fff;
+}
+.services .serv-content .card:hover i{
+    color: #000000;
+}
+.services .serv-content .card:hover .text{
+    color: #000000;
+}
+.services .serv-content .card:hover p{
+    color: #000000;
+}
+.services .serv-content .card:hover a{
+    color: #000000;
+}
+  .services .serv-content .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+  }
+  .services .serv-content .card{
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+}
+.skills .skills-content .column,
+.contact .contact-content .column{
+    width: 100%;
+    margin-bottom: 35px;
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 2;
+    }
+}
+@media (max-width: 690px) {
+    .max-width{
+        padding: 0 23px;
+    }
+    .home .home-content .text-2{
+        font-size: 60px;
+    }
+    .home .home-content .text-3{
+        font-size: 32px;
+    }
+    .home .home-content a{
+        font-size: 20px;
+    }
+    .services .serv-content .card{
+        width: 100%;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .home .home-content .text-2{
+        font-size: 50px;
+    }
+    .home .home-content .text-3{
+        font-size: 27px;
+    }
+    .about .about-content .right .text,
+    .skills .skills-content .left .text{
+        font-size: 19px;
+    }
+    .contact .right form .fields{
+        flex-direction: column;
+    }
+    .contact .right form .name,
+    .contact .right form .email{
+        margin: 0;
+    }
+    .right form .error-box{
+       width: 150px;
+    }
+    .scroll-up-btn{
+        right: 15px;
+        bottom: 15px;
+        height: 38px;
+        width: 35px;
+        font-size: 23px;
+        line-height: 38px;
+    }
+  }
+footer {
+    background: rgb(34, 34, 34);
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+}
+</style>
+<body>
+  <div id="back">
+    <button class="openbtn" onclick="openSidebar()">Back</button>
+</div>
+<div id="sidebar" class="sidebar">
+  <a href="#" class="closebtn" onclick="closeSidebar()">&times;</a>
+  <a href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="azref.html"><i class="fa-solid fa-robot"></i>"AZREF"</a>
+  <a href="howitworks.html"><i class="fa-solid fa-screwdriver-wrench"></i>How it works?</a>
+  <a href="#"><i class="fa-solid fa-lock"></i>Privacy</a>
+  <a href="about.html"><i class="fa-solid fa-user"></i>About</a>
+</div>
+<script src="../js/ligma.js"></script>
+    <div class="main-title">
+        <h1> - Download The Latest Version - </p>
+    </div>
+    <div class="ItemCount">
+        <h2>of ItemCount</h2>
+        <p>Current version: v1.4.1222.23</p>
+    </div>
+    <section class="services" id="services">
+        <div class="max-width">
+          <h2 class="title">Download</h2>
+          <div class="serv-content">
+            <div class="card">
+              <div class="box">
+                <i class="fa-brands fa-windows"></i>
+                <div class="text">Download for Windows</div>
+                <p>Download the latest version of ItemCount on Windows, only available in Windows (7, 8, 8.1, 10, and 11) with the
+                    current version of v1.4.1222.23
+                </p>
+                <a href="../photogif/CaXeRgfx.png" download="CaXeRgfx.png">Download now</a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="box">
+                <i class="fa-brands fa-apple"></i>
+                <div class="text">Download for Mac</div>
+                <p>Download the latest version of ItemCount on Mac, only available in macOS (12 Monterey, 13 Ventura, 14 Sonoma and
+                    15 Sequoia) with the current version of v1.3.1224.20
+                </p>
+                <a href="../photogif/CaXeRgfx.png" download="CaXeRgfx.png">Download now</a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="box">
+                <i class="fa-brands fa-linux"></i>
+                <div class="text">Download for Linux</div>
+                <p>Download the latest version of ItemCount on Linux only available in (Nitrux, Ubuntu, Zorin OS,
+                    Pop! OS, Rocky Linux) with the current version of v1.2.1223.19
+                </p>
+                 <a href="../photogif/CaXeRgfx.png" download="CaXeRgfx.png">Download now</a>
+              </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fa-solid fa-mobile"></i>
+                  <div class="text">Download for Android/IOS</div>
+                  <p>Download the latest version of ItemCount on Android or IOS, with the current version of v1.3.1224.20
+                  </p>
+                   <a href="../photogif/CaXeRgfx.png" download="CaXeRgfx.png">Download now</a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        &copy; 2024 ItemCount Stay Connected, All rights reserved
+        All other trademarks belong to their respective owners.
+      </footer>
+</body>
+</html>
